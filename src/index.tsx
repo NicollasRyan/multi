@@ -1,8 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { FormStep1 } from "./pages/FormStep1";
+import { FormStep2 } from "./pages/FormStep2";
+import { FormStep3 } from "./pages/FormStep3";
+
 import { GlobalStyle } from "./styles/global";
 
 const root = ReactDOM.createRoot(
@@ -10,8 +15,16 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
-    <GlobalStyle />
+    <Router>
+      <Routes>
+        <Route element={<App />}>
+          <Route path="/" element={<FormStep1 />} />
+          <Route path="/step2" element={<FormStep2 />} />
+          <Route path="/step3" element={<FormStep3 />} />
+        </Route>
+      </Routes>
+      <GlobalStyle />
+    </Router>
   </React.StrictMode>
 );
 
