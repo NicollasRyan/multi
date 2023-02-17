@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
+import { Theme } from "./components/theme";
 
 function App() {
   return (
-    <>
-      <h1>Hello world</h1>
+    <Theme>
       <Outlet />
-    </>
+    </Theme>
   );
 }
 
