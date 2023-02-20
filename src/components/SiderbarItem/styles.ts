@@ -39,14 +39,5 @@ export const IconArea = styled.div<{ active: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-export const Point = styled.div<{ active: boolean }>`
-  width: 6px;
-  height: 6px;
-  border: 3px solid #494a7c;
-  border-radius: 50%;
-  margin-left: 30px;
-  margin-right: -6px;
-  background-color: ${(props) => (props.active ? "#25CD89" : "#02044A")};
+  margin-right: 15px;
 `;
