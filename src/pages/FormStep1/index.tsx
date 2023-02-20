@@ -1,3 +1,7 @@
+import { ChangeEvent, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useForm, FormAction } from "../../contexts/FormContext";
+
 import {
   BoxText,
   Button,
@@ -10,7 +14,30 @@ import {
 } from "./styles";
 
 export function FormStep1() {
-  const handleNextStep = () => {};
+  const navigate = useNavigate();
+  const { state, dispatch } = useForm();
+
+  useEffect(() => {
+    dispatch({
+      type: FormAction.setCurrentStep,
+      payload: 1,
+    });
+  }, []);
+
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: FormAction.setName,
+      payload: e.target.value,
+    });
+  };
+
+  const handleNextStep = () => {
+    if (state.name !== "") {
+      navigate("/step2");
+    } else {
+      alert("Digite seu nome");
+    }
+  };
 
   return (
     <Conatiner>
@@ -24,7 +51,12 @@ export function FormStep1() {
 
       <Label>
         Seu Nome completo
-        <Input />
+        <Input
+          type="text"
+          autoFocus
+          value={state.name}
+          onChange={handleNameChange}
+        />
       </Label>
 
       <Button onClick={handleNextStep}>Próximo</Button>
