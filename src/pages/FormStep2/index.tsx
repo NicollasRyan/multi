@@ -15,6 +15,7 @@ import {
   Title,
 } from "./styles";
 import { Link } from "react-router-dom";
+import { Theme } from "../../components/theme";
 
 export function FormStep2() {
   const navigate = useNavigate();
@@ -46,33 +47,35 @@ export function FormStep2() {
   };
 
   return (
-    <Conatiner>
-      <BoxText>
-        <Step>Passo 2/3</Step>
-        <Title>{state.name}, o que melhor descreve voçê?</Title>
-        <Description>
-          Selecione a opção que melhor condiz com seu estado atual.
-        </Description>
-      </BoxText>
+    <Theme>
+      <Conatiner>
+        <BoxText>
+          <Step>Passo 2/3</Step>
+          <Title>{state.name}, o que melhor descreve voçê?</Title>
+          <Description>
+            Selecione a opção que melhor condiz com seu estado atual.
+          </Description>
+        </BoxText>
 
-      <SelectOption
-        title="Sou iniciante"
-        descripition="Comecei a programar há menos de 2 anos"
-        icon="🥳"
-        selected={state.level === 0}
-        onClick={() => setLevel(0)}
-      />
+        <SelectOption
+          title="Sou iniciante"
+          descripition="Comecei a programar há menos de 2 anos"
+          icon="🥳"
+          selected={state.level === 0}
+          onClick={() => setLevel(0)}
+        />
 
-      <SelectOption
-        title="Sou Programador"
-        descripition="Já programo há 2 anos ou mais"
-        icon="😎"
-        selected={state.level === 1}
-        onClick={() => setLevel(1)}
-      />
+        <SelectOption
+          title="Sou Programador"
+          descripition="Já programo há 2 anos ou mais"
+          icon="😎"
+          selected={state.level === 1}
+          onClick={() => setLevel(1)}
+        />
 
-      <BackButton to="/">Voltar</BackButton>
-      <Button onClick={handleNextStep}>Próximo</Button>
-    </Conatiner>
+        <BackButton to="/">Voltar</BackButton>
+        <Button onClick={handleNextStep}>Próximo</Button>
+      </Conatiner>
+    </Theme>
   );
 }

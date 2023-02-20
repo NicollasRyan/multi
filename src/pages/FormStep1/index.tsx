@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Theme } from "../../components/theme";
 import { useForm, FormAction } from "../../contexts/FormContext";
 
 import {
@@ -40,26 +41,28 @@ export function FormStep1() {
   };
 
   return (
-    <Conatiner>
-      <BoxText>
-        <Step>Passo 1/3</Step>
-        <Title>Vamos começar com seu nome</Title>
-        <Description>
-          Preencha o campo abaixo com seu nome completo.
-        </Description>
-      </BoxText>
+    <Theme>
+      <Conatiner>
+        <BoxText>
+          <Step>Passo 1/3</Step>
+          <Title>Vamos começar com seu nome</Title>
+          <Description>
+            Preencha o campo abaixo com seu nome completo.
+          </Description>
+        </BoxText>
 
-      <Label>
-        Seu Nome completo
-        <Input
-          type="text"
-          autoFocus
-          value={state.name}
-          onChange={handleNameChange}
-        />
-      </Label>
+        <Label>
+          Seu Nome completo
+          <Input
+            type="text"
+            autoFocus
+            value={state.name}
+            onChange={handleNameChange}
+          />
+        </Label>
 
-      <Button onClick={handleNextStep}>Próximo</Button>
-    </Conatiner>
+        <Button onClick={handleNextStep}>Próximo</Button>
+      </Conatiner>
+    </Theme>
   );
 }

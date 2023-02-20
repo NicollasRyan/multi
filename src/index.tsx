@@ -10,6 +10,7 @@ import { FormStep2 } from "./pages/FormStep2";
 import { FormStep3 } from "./pages/FormStep3";
 
 import { GlobalStyle } from "./styles/global";
+import { Finished } from "./pages/Finished";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -23,6 +24,7 @@ root.render(
             <Route path="/" element={<FormStep1 />} />
             <Route path="/step2" element={<FormStep2 />} />
             <Route path="/step3" element={<FormStep3 />} />
+            <Route path="/finished" element={<Finished />} />
           </Route>
         </Routes>
         <GlobalStyle />
