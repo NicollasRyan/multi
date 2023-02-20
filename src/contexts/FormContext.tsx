@@ -3,7 +3,7 @@ import { createContext, useReducer, useContext, ReactNode } from "react";
 type State = {
   currentStep: number;
   name: string;
-  level: string;
+  level: number;
   email: string;
   github: string;
 };
@@ -16,7 +16,7 @@ type Action = {
 const initialData: State = {
   currentStep: 0,
   name: "",
-  level: "",
+  level: 0,
   email: "",
   github: "",
 };

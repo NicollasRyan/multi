@@ -4,6 +4,7 @@ import { useForm, FormAction } from "../../contexts/FormContext";
 import { SelectOption } from "../../components/SelectOption";
 
 import {
+  Back,
   BoxText,
   Button,
   Conatiner,
@@ -13,12 +14,16 @@ import {
   Step,
   Title,
 } from "./styles";
+import { Link } from "react-router-dom";
 
 export function FormStep2() {
   const navigate = useNavigate();
   const { state, dispatch } = useForm();
 
   useEffect(() => {
+    if (state.name === "") {
+      navigate("/");
+    }
     dispatch({
       type: FormAction.setCurrentStep,
       payload: 2,
@@ -33,13 +38,20 @@ export function FormStep2() {
     }
   };
 
+  const setLevel = (level: number) => {
+    dispatch({
+      type: FormAction.setLevel,
+      payload: level,
+    });
+  };
+
   return (
     <Conatiner>
       <BoxText>
         <Step>Passo 2/3</Step>
-        <Title>Vamos começar com seu nome</Title>
+        <Title>{state.name}, o que melhor descreve voçê?</Title>
         <Description>
-          Preencha o campo abaixo com seu nome completo.
+          Selecione a opção que melhor condiz com seu estado atual.
         </Description>
       </BoxText>
 
@@ -47,14 +59,19 @@ export function FormStep2() {
         title="Sou iniciante"
         descripition="Comecei a programar há menos de 2 anos"
         icon="🥳"
+        selected={state.level === 0}
+        onClick={() => setLevel(0)}
       />
 
       <SelectOption
         title="Sou Programador"
         descripition="Já programo há 2 anos ou mais"
         icon="😎"
+        selected={state.level === 1}
+        onClick={() => setLevel(1)}
       />
 
+      <Back to="/">Voltar</Back>
       <Button onClick={handleNextStep}>Próximo</Button>
     </Conatiner>
   );

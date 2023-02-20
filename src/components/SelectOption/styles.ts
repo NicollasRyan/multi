@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Conatiner = styled.div`
+export const Conatiner = styled.div<{ selected: boolean }>`
   display: flex;
-  border: 2px solid #16295c;
+  border: 2px solid ${(props) => (props.selected ? "#15cd89" : "#16295c")};
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 15px;
@@ -10,7 +10,7 @@ export const Conatiner = styled.div`
   cursor: pointer;
 
   &:hover {
-    border: 2px solid #496459;
+    border: 2px solid #fff;
   }
 `;
 

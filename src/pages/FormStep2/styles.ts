@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Conatiner = styled.div``;
@@ -38,6 +39,20 @@ export const Input = styled.input`
   outline: 0;
   font-size: 15px;
   background-color: #02044a;
+`;
+
+export const Back = styled(Link)`
+  text-decoration: none;
+  background-color: #25cd89;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px 40px;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-right: 20px;
 `;
 
 export const Button = styled.button`
