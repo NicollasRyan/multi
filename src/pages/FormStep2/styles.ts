@@ -41,7 +41,7 @@ export const Input = styled.input`
   background-color: #02044a;
 `;
 
-export const Back = styled(Link)`
+export const BackButton = styled(Link)`
   text-decoration: none;
   background-color: #25cd89;
   color: #fff;

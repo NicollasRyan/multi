@@ -4,7 +4,7 @@ import { useForm, FormAction } from "../../contexts/FormContext";
 import { SelectOption } from "../../components/SelectOption";
 
 import {
-  Back,
+  BackButton,
   BoxText,
   Button,
   Conatiner,
@@ -71,7 +71,7 @@ export function FormStep2() {
         onClick={() => setLevel(1)}
       />
 
-      <Back to="/">Voltar</Back>
+      <BackButton to="/">Voltar</BackButton>
       <Button onClick={handleNextStep}>Próximo</Button>
     </Conatiner>
   );
